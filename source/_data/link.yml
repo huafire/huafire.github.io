@@ -1,0 +1,43 @@
+class:
+  class_name: 友情链接
+  link_list: 
+    1:
+      name: lishangu
+      link: https://lishangu.gitee.io/
+      avatar: https://lishangu.gitee.io/image/avatar.jpg
+      descr: Valley的个人博客
+
+    2:
+      name: ishuhui
+      link: https://ishuhui.gitee.io/
+      avatar: https://ishuhui.gitee.io/img/avatar.jpg
+      descr: 一个小白的个人博客
+
+    3:
+      name: Jerry
+      link: https://butterfly.js.org/
+      avatar: https://immyw.com/img/avatar.png
+      descr: Butterfly主题开发者
+
+    4: 
+      name: 楠楠
+      link: http://liumengjieabc.gitee.io/
+      avatar: https://liumengjieabc.gitee.io/img/ghead.jpg
+      descr: 一个未来前端大佬的博客
+
+    5: 
+      name: linmeier
+      link: https://linmeier.gitee.io/
+      avatar: https://linmeier.gitee.io/img/1.jpg
+      descr: 一个未来大佬的博客
+
+
+
+class2:
+  class_name: 一些值得推荐的网站
+  link_list: 
+    1:
+      name: bigpig
+      link: https://www.bigjpg.com/
+      avatar: 
+      descr: AI人工智能图片放大
