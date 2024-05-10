@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hexo+Gitee搭建个人博客 | Huafire's Blog</title><meta name="keywords" content="Hexo+Gitee"><meta name="author" content="Huafire"><meta name="copyright" content="Huafire"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="环境部署​    首先要安装 git 和 nodejs，git 的安装可以直接在电脑管家里的软件管理直接安装，当然，也可以自己下载安装包安装，官网：https:&#x2F;&#x2F;git-scm.com&#x2F;download&#x2F;win ，同样的，nodejs 也可以直接在电脑管家里的软件管理安装，也可以自己下载安装包，官网：https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F; ， 会自动弹出是否下载。 ​    github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo+Gitee搭建个人博客">
+<meta property="og:url" content="http://likanghua.gitee.io/posts/47918.html">
+<meta property="og:site_name" content="Huafire&#39;s Blog">
+<meta property="og:description" content="环境部署​    首先要安装 git 和 nodejs，git 的安装可以直接在电脑管家里的软件管理直接安装，当然，也可以自己下载安装包安装，官网：https:&#x2F;&#x2F;git-scm.com&#x2F;download&#x2F;win ，同样的，nodejs 也可以直接在电脑管家里的软件管理安装，也可以自己下载安装包，官网：https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F; ， 会自动弹出是否下载。 ​    github">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2020-09-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-04-05T07:35:36.834Z">
+<meta property="article:author" content="Huafire">
+<meta property="article:tag" content="Hexo+Gitee">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/image/favicon.png"><link rel="canonical" href="http://likanghua.gitee.io/posts/47918"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="0636b7ba2150764ec4f9af345a7bf915"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":300,"languages":{"author":"作者: Huafire","link":"链接: ","source":"来源: Huafire's Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-04-05 15:35:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/hua.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/image/avatar.jpg" onerror="onerror=null;src='/image/timg (9).jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-cubes"></i><span> 自言自语</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messages/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Huafire's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-cubes"></i><span> 自言自语</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messages/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Hexo+Gitee搭建个人博客</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-09-06T16:00:00.000Z" title="发表于 2020-09-07 00:00:00">2020-09-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-04-05T07:35:36.834Z" title="更新于 2021-04-05 15:35:36">2021-04-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Hexo/">Hexo</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h2><p>​    首先要安装 git 和 nodejs，git 的安装可以直接在电脑管家里的软件管理直接安装，当然，也可以自己下载安装包安装，官网：<a target="_blank" rel="noopener" href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> ，同样的，nodejs 也可以直接在电脑管家里的软件管理安装，也可以自己下载安装包，官网：<a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a> ， 会自动弹出是否下载。</p>
+<p>​    github 和 gitee 都可以部署，各有优缺点。在 github 上部署的话，访问比较慢，毕竟是国外的，在 gitee 上部署的话，每次更新都需要自己手动点几下。</p>
+<h2 id="建立仓库"><a href="#建立仓库" class="headerlink" title="建立仓库"></a>建立仓库</h2><p>​    个人是在 gitee 上部署的，首先建立一个仓库。</p>
+<img src="/posts/47918/a.jpg" style="zoom:67%;">
+
+<p>​    <strong>仓库名一定要是你 gitee 的昵称。</strong>不要问我为什么，我不想回答…</p>
+<p>​    选项按照下面就可以。</p>
+<p><img src="/posts/47918/b.jpg"></p>
+<p>​    </p>
+<h2 id="本地运行"><a href="#本地运行" class="headerlink" title="本地运行"></a>本地运行</h2><p>​    建立好仓库以后，在本地建立一个文件夹个人建立文件夹路径：E:\Hexo ，然后开始全局安装 hexo ，打开 cmd（注：这里也可以用 git bash ，都可以），命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局安装hexo</span></span><br><span class="line">E:\Hexo&gt; npm install -g hexo</span><br></pre></td></tr></table></figure>
+
+<p>​    运行完这条命令以后，检查 hexo 是否可用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\Hexo&gt; hexo -v</span><br></pre></td></tr></table></figure>
+
+<p>​    如果可用，就会显示 hexo 的版本号，如果不能用，则会报错。如果没有报错，请忽视下面这一段。</p>
+<p>​    我的就报错了，不是内部或者外部命令，不要慌，这个原因是没有加入环境变量，手动加上环境变量就ok了，我的 hexo 默认安装到 D:\program files\nodejs\node_cache 这个文件夹下面了，所以我们只要讲这个路径手动加到环境变量就ok了。注意：这个时候需要重新打开一个 cmd ，原来的 cmd 是没有刷新的。</p>
+<p>​    hexo 可以用了以后：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先进入到我们刚刚建立的文件夹里，然后开始初始化项目</span></span><br><span class="line">C:\Users\12136&gt; E:</span><br><span class="line">E:\&gt; <span class="built_in">cd</span> Hexo</span><br><span class="line">E:\Hexo&gt; hexo init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 再编译工程，自动生成站点</span></span><br><span class="line">E:\Hexo&gt; hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动本地服务</span></span><br><span class="line">E:\Hexo&gt; hexo s</span><br></pre></td></tr></table></figure>
+
+<p>​    注：hexo g 和 hexo s 可以合并，写成一条命令： hexo g &amp;&amp; hexo s</p>
+<p>​    这个时候我们打开浏览器，输入网址：127.0.0.1:4000，就可以看到我们在本地的个人博客了。</p>
+<p>​    </p>
+<p>​    修改 _config.yml 配置文件</p>
+<p>​    我们打开刚刚建立的 Hexo 文件夹，编辑 _config.yml 文件，直接找到最后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: </span><br></pre></td></tr></table></figure>
+
+<p>改成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;gitee.com&#x2F;likanghua&#x2F;likanghua.git #https:&#x2F;&#x2F;gitee.com&#x2F;likanghua&#x2F;likanghua.git为仓库地址</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>​    注意：</p>
+<p>​    1、每个冒号后面都有一个空格。</p>
+<p>​    2、repo 后面的地址是自己仓库的地址，如下图：</p>
+<p><img src="/posts/47918/c.jpg"></p>
+<p>​    下面的过程就是我们上传到 gitee 仓库的过程了，肯定要用到 git 命令，所以总结了一下常用的几个 git 命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化仓库</span></span><br><span class="line">E:\Hexo&gt; git init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加文件到暂存区</span></span><br><span class="line">E:\Hexo&gt; git add .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将暂存区内容添加到仓库中</span></span><br><span class="line">E:\Hexo&gt; git commit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拷贝一份远程仓库，也就是下载一个项目</span></span><br><span class="line">E:\Hexo&gt; git <span class="built_in">clone</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看仓库当前的状态，显示有变更的文件</span></span><br><span class="line">E:\Hexo&gt; git status</span><br><span class="line"></span><br><span class="line"><span class="comment"># 远程仓库操作</span></span><br><span class="line">E:\Hexo&gt; git remote</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载远程代码并合并</span></span><br><span class="line">E:\Hexo&gt; git pull</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上传远程代码并合并</span></span><br><span class="line">E:\Hexo&gt; git push</span><br></pre></td></tr></table></figure>
+
+<h2 id="上传到仓库"><a href="#上传到仓库" class="headerlink" title="上传到仓库"></a>上传到仓库</h2><p>​    下面开始将我们已经在本地部署好的个人博客上传到 gitee 上：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化仓库</span></span><br><span class="line">E:\Hexo&gt;git init</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> E:/Hexo/.git/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加文件到暂存区</span></span><br><span class="line">E:\Hexo&gt;git add .</span><br><span class="line">warning: LF will be replaced by CRLF <span class="keyword">in</span> package.json.</span><br><span class="line">The file will have its original line endings <span class="keyword">in</span> your working directory</span><br><span class="line"></span><br><span class="line"><span class="comment"># 连接自己的仓库，其中 https://gitee.com/***/***.git 是自己的仓库</span></span><br><span class="line">E:\Hexo&gt;git remote add origin https://gitee.com/***/***.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意：第一次应该会让填写邮箱和仓库名</span></span><br><span class="line">E:\Hexo&gt;git commit -m <span class="string">&quot;hexo初始化&quot;</span></span><br><span class="line">[master (root-commit) c49d245] hexo初始化</span><br><span class="line"> 93 files changed, 7127 insertions(+)</span><br><span class="line"> create mode 100644 .gitignore</span><br><span class="line"> create mode 100644 _config.yml</span><br><span class="line"> create mode 100644 package-lock.json</span><br><span class="line"> create mode 100644 package.json</span><br><span class="line"> create mode 100644 scaffolds/draft.md</span><br><span class="line"> create mode 100644 scaffolds/page.md</span><br><span class="line"> create mode 100644 scaffolds/post.md</span><br><span class="line"> create mode 100644 <span class="built_in">source</span>/_posts/hello-world.md</span><br><span class="line"> create mode 100644 themes/landscape/.gitignore</span><br><span class="line"> create mode 100644 themes/landscape/Gruntfile.js</span><br><span class="line"> create mode 100644 themes/landscape/LICENSE</span><br><span class="line"> create mode 100644 themes/landscape/README.md</span><br><span class="line"> create mode 100644 themes/landscape/_config.yml</span><br><span class="line"> create mode 100644 themes/landscape/languages/de.yml</span><br><span class="line"> create mode 100644 themes/landscape/languages/default.yml</span><br><span class="line"> create mode 100644 themes/landscape/languages/es.yml</span><br><span class="line"> create mode 100644 themes/landscape/languages/fr.yml</span><br><span class="line"> create mode 100644 themes/landscape/languages/ja.yml</span><br><span class="line"> create mode 100644 themes/landscape/languages/ko.yml</span><br><span class="line"> create mode 100644 themes/landscape/languages/nl.yml</span><br><span class="line"> create mode 100644 themes/landscape/languages/no.yml</span><br><span class="line"> create mode 100644 themes/landscape/languages/pt.yml</span><br><span class="line"> create mode 100644 themes/landscape/languages/ru.yml</span><br><span class="line"> create mode 100644 themes/landscape/languages/zh-CN.yml</span><br><span class="line"> create mode 100644 themes/landscape/languages/zh-TW.yml</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/after-footer.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/archive-post.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/archive.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/article.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/footer.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/gauges-analytics.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/google-analytics.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/head.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/header.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/mobile-nav.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/post/category.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/post/date.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/post/gallery.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/post/nav.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/post/tag.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/post/title.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_partial/sidebar.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_widget/archive.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_widget/category.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_widget/recent_posts.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_widget/tag.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/_widget/tagcloud.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/archive.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/category.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/index.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/layout.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/page.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/post.ejs</span><br><span class="line"> create mode 100644 themes/landscape/layout/tag.ejs</span><br><span class="line"> create mode 100644 themes/landscape/package.json</span><br><span class="line"> create mode 100644 themes/landscape/scripts/fancybox.js</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/_extend.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/_partial/archive.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/_partial/article.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/_partial/comment.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/_partial/footer.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/_partial/header.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/_partial/highlight.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/_partial/mobile.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/_partial/sidebar-aside.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/_partial/sidebar-bottom.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/_partial/sidebar.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/_util/grid.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/_util/mixin.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/_variables.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/fonts/FontAwesome.otf</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/fonts/fontawesome-webfont.eot</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/fonts/fontawesome-webfont.svg</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/fonts/fontawesome-webfont.ttf</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/fonts/fontawesome-webfont.woff</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/images/banner.jpg</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/css/style.styl</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/blank.gif</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/fancybox_loading.gif</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/fancybox_loading@2x.gif</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/fancybox_overlay.png</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/fancybox_sprite.png</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/fancybox_sprite@2x.png</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/helpers/fancybox_buttons.png</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/helpers/jquery.fancybox-buttons.css</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/helpers/jquery.fancybox-buttons.js</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/helpers/jquery.fancybox-media.js</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/helpers/jquery.fancybox-thumbs.css</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/helpers/jquery.fancybox-thumbs.js</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/jquery.fancybox.css</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/jquery.fancybox.js</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/fancybox/jquery.fancybox.pack.js</span><br><span class="line"> create mode 100644 themes/landscape/<span class="built_in">source</span>/js/script.js</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 解决远程和本地的冲突（可以不运行）</span></span><br><span class="line">E:\Hexo&gt;git pull --rebase origin master</span><br><span class="line">warning: no common commits</span><br><span class="line">remote: Enumerating objects: 4, <span class="keyword">done</span>.</span><br><span class="line">remote: Counting objects: 100% (4/4), <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (4/4), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (4/4), 1.42 KiB | 5.00 KiB/s, <span class="keyword">done</span>.</span><br><span class="line">From https://gitee.com/likanghua/likanghua</span><br><span class="line"> * branch            master     -&gt; FETCH_HEAD</span><br><span class="line"> * [new branch]      master     -&gt; origin/master</span><br><span class="line">Successfully rebased and updated refs/heads/master.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解决完冲突以后，推出（与上一条命令一起用）</span></span><br><span class="line">E:\Hexo&gt;git push -u origin master</span><br><span class="line">Enumerating objects: 115, <span class="keyword">done</span>.</span><br><span class="line">Counting objects: 100% (115/115), <span class="keyword">done</span>.</span><br><span class="line">Delta compression using up to 8 threads</span><br><span class="line">Compressing objects: 100% (104/104), <span class="keyword">done</span>.</span><br><span class="line">Writing objects: 100% (114/114), 533.21 KiB | 11.85 MiB/s, <span class="keyword">done</span>.</span><br><span class="line">Total 114 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">remote: Powered by GITEE.COM [GNK-5.0]</span><br><span class="line">To https://gitee.com/likanghua/likanghua.git</span><br><span class="line">   b3a7783..6610b37  master -&gt; master</span><br><span class="line">Branch <span class="string">&#x27;master&#x27;</span> <span class="built_in">set</span> up to track remote branch <span class="string">&#x27;master&#x27;</span> from <span class="string">&#x27;origin&#x27;</span>.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装推送插件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署/更新博客，首次发布需要在 shell 中输入账号和密码。</span></span><br><span class="line">E:\Hexo&gt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+<p>然后回到 gitee 仓库，选择 Pages 。</p>
+<p><img src="/posts/47918/d.jpg"></p>
+<p>​    再点击更新就可以了</p>
+<p><img src="/posts/47918/e.jpg"></p>
+<h2 id="更新博客"><a href="#更新博客" class="headerlink" title="更新博客"></a>更新博客</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开 cmd ，进入到 Hexo 文件夹后，输入以下命令</span></span><br><span class="line">E:\Hexo&gt;hexo new 第一篇博客</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写好以后更新博客</span></span><br><span class="line">E:\Hexo&gt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+<p>​    再到 gitee 上，点击更新就可以了。</p>
+<p>​    博客主题可以自己换哦~</p>
+<h2 id="补充图片挂掉的问题"><a href="#补充图片挂掉的问题" class="headerlink" title="补充图片挂掉的问题"></a>补充图片挂掉的问题</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装上传图片的插件</span></span><br><span class="line">E:\Hexo&gt; npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p>​    这个时候再运行 hexo new ** 时，会生成一个同名文件夹，将图片放进去，正常引用就可以了。</p>
+<p>​    <strong>注意：</strong></p>
+<p>​    <strong>1、要用相对路径。</strong></p>
+<p>​    <strong>2、图片中间要用 / ，不要用 \ ，否则图片会挂掉。</strong></p>
+<h2 id="直接拉取配置好的-hexo，主题为butterfly"><a href="#直接拉取配置好的-hexo，主题为butterfly" class="headerlink" title="直接拉取配置好的 hexo，主题为butterfly"></a>直接拉取配置好的 hexo，主题为butterfly</h2><p>​        由于发现每次配置都需要大量的配置，有的电脑网不好，或者环境没有配置好，就会很麻烦，所以本人建立了一个仓库，可以直接拉取配置好的框架，拉取到本地以后，用hexo命令就可以直接运行。</p>
+<p>​        <code>gitee</code>网址：<a target="_blank" rel="noopener" href="https://gitee.com/likanghua/hexo-butterfly.git">https://gitee.com/likanghua/hexo-butterfly.git</a></p>
+<p>​        拉取命令如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://gitee.com/likanghua/hexo-butterfly.git</span><br></pre></td></tr></table></figure>
+
+<p>​        记得翻到网页的最下面，点一个Star哦，这个对本人目前很是重要，谢谢啦~</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Huafire</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://likanghua.gitee.io/posts/47918.html">http://likanghua.gitee.io/posts/47918.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://likanghua.gitee.io" target="_blank">Huafire's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Hexo-Gitee/">Hexo+Gitee</a></div><div class="post_share"><div class="addthis_inline_share_toolbox"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60693108ca3b69d9" async="async"></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/image/wechat.png" target="_blank"><img class="post-qr-code-img" src="/image/wechat.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/image/alipay.png" target="_blank"><img class="post-qr-code-img" src="/image/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/1ea2ed25.html"><img class="prev-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/image/timg%20(9).jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Centos服务器配置</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">环境部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E4%BB%93%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">建立仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C"><span class="toc-number">3.</span> <span class="toc-text">本地运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E5%88%B0%E4%BB%93%E5%BA%93"><span class="toc-number">4.</span> <span class="toc-text">上传到仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2"><span class="toc-number">5.</span> <span class="toc-text">更新博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E5%9B%BE%E7%89%87%E6%8C%82%E6%8E%89%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">补充图片挂掉的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%8B%89%E5%8F%96%E9%85%8D%E7%BD%AE%E5%A5%BD%E7%9A%84-hexo%EF%BC%8C%E4%B8%BB%E9%A2%98%E4%B8%BAbutterfly"><span class="toc-number">7.</span> <span class="toc-text">直接拉取配置好的 hexo，主题为butterfly</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 <i id="heartbeat" class="fa fas fa-heartbeat"></i> Huafire</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></head></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'dark',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'Wbv34OKsNzQ3ArX4huI8pXHe-MdYXbMMI',
+      appKey: 'WlASmI3uPHlDpGDeGFCEUObC',
+      placeholder: '快点来说点什么吧^-^',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Centos配置环境 | Huafire's Blog</title><meta name="keywords" content="Centos"><meta name="author" content="Huafire"><meta name="copyright" content="Huafire"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="安装python3.7.0环境123456789101112131415[root@aliyun &#x2F;]# tar -zxf Python-3.7.0.tgz[root@aliyun &#x2F;]# cd Python-3.7.0[root@aliyun &#x2F;]# yum install zlib-devel bzip2-devel openssl-devel ncurses-d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Centos配置环境">
+<meta property="og:url" content="http://likanghua.gitee.io/posts/6bb8a1e9.html">
+<meta property="og:site_name" content="Huafire&#39;s Blog">
+<meta property="og:description" content="安装python3.7.0环境123456789101112131415[root@aliyun &#x2F;]# tar -zxf Python-3.7.0.tgz[root@aliyun &#x2F;]# cd Python-3.7.0[root@aliyun &#x2F;]# yum install zlib-devel bzip2-devel openssl-devel ncurses-d">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://likanghua.gitee.io/image/top_img.jpg">
+<meta property="article:published_time" content="2021-03-20T02:44:32.000Z">
+<meta property="article:modified_time" content="2021-03-28T09:36:15.990Z">
+<meta property="article:author" content="Huafire">
+<meta property="article:tag" content="Centos">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://likanghua.gitee.io/image/top_img.jpg"><link rel="shortcut icon" href="/image/favicon.png"><link rel="canonical" href="http://likanghua.gitee.io/posts/6bb8a1e9"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="0636b7ba2150764ec4f9af345a7bf915"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":300,"languages":{"author":"作者: Huafire","link":"链接: ","source":"来源: Huafire's Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-28 17:36:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/hua.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/image/avatar.jpg" onerror="onerror=null;src='/image/timg (9).jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-cubes"></i><span> 自言自语</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messages/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/image/top_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Huafire's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-cubes"></i><span> 自言自语</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messages/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Centos配置环境</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-03-20T02:44:32.000Z" title="发表于 2021-03-20 10:44:32">2021-03-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-28T09:36:15.990Z" title="更新于 2021-03-28 17:36:15">2021-03-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Centos/">Centos</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Centos/%E7%8E%AF%E5%A2%83/">环境</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="安装python3-7-0环境"><a href="#安装python3-7-0环境" class="headerlink" title="安装python3.7.0环境"></a>安装python3.7.0环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@aliyun &#x2F;]# tar -zxf Python-3.7.0.tgz</span><br><span class="line"></span><br><span class="line">[root@aliyun &#x2F;]# cd Python-3.7.0</span><br><span class="line"></span><br><span class="line">[root@aliyun &#x2F;]# yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel libpcap-devel xz-devel</span><br><span class="line"></span><br><span class="line">[root@aliyun &#x2F;]# yum -y install libffi-devel</span><br><span class="line"></span><br><span class="line">[root@aliyun &#x2F;]# yum install openssl-devel bzip2-devel expat-devel gdbm-devel readline-devel sqlite-devel gcc gcc-c++ openssl-devel</span><br><span class="line"></span><br><span class="line">[root@aliyun &#x2F;]# .&#x2F;configure</span><br><span class="line"></span><br><span class="line">[root@aliyun &#x2F;]# make</span><br><span class="line"></span><br><span class="line">[root@aliyun &#x2F;]# make install</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h2><blockquote>
+<p>说明：这里安装的是Oracle JDK，但是本人在 Centos7.4 版本上和 Centos7.7 版本上，安装 OpenJDK 13 时，并未发现问题，如有问题，欢迎在下方评论处讨论。</p>
+</blockquote>
+<p>​    我安装的是 <code>OpenJDK 13</code> ，并将其直接放在了 <code>home</code> 文件夹下。</p>
+<p>​    先找到已经安装的 <code>OpenJDK</code>，命令如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep java</span><br></pre></td></tr></table></figure>
+
+<p>​    将带有<code>OpenJDK</code>字样的都删除掉，例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y remove java-1.7.0-openjdk-1.7.0.141-2.6.10.5.el7.x86_64</span><br></pre></td></tr></table></figure>
+
+<p>​    下面开始安装：</p>
+<p>​    解压</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建文件夹，并进入</span></span><br><span class="line">cd /usr/local/</span><br><span class="line">mkdir java</span><br><span class="line">cd java</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将准备好的 JDK安装包解压到当前文件夹下</span></span><br><span class="line">tar -zxvf /home/jdk-8u161-linux-x64.tar.gz -C ./</span><br></pre></td></tr></table></figure>
+
+<p>​    解压完之后， /usr/local/java ⽬录中会出现⼀个<code>jdk13.0.2</code>的文件夹.</p>
+<p>​    配置<code>JDK</code>环境</p>
+<p>​    编辑<code>/etc/profile</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>​    在⽂件尾部加⼊如下JDK 环境配置即可。（<strong>注意：根据自己的<code>JDK</code>的版本号配置</strong>）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/local/java/jdk-13.0.2</span><br><span class="line">CLASSPATH=$JAVA_HOME/lib/</span><br><span class="line">PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line">export PATH JAVA_HOME CLASSPATH</span><br></pre></td></tr></table></figure>
+
+<p>​    配置好以后，刷新一下环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>​    输入下面的命令验证结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java -verison</span><br><span class="line">javac</span><br></pre></td></tr></table></figure>
+
+<p><img src="/posts/6bb8a1e9/a.png"></p>
+<h2 id="Centos7-4安装mysql"><a href="#Centos7-4安装mysql" class="headerlink" title="Centos7.4安装mysql"></a>Centos7.4安装mysql</h2><blockquote>
+<p>下面的文章参考某站博主<code>CodeSheep</code>大神写的开源文档，侵删！</p>
+<p>文档在 Github 开源项目链接：<a target="_blank" rel="noopener" href="https://github.com/hansonwang99/JavaCollection">https://github.com/hansonwang99/JavaCollection</a></p>
+</blockquote>
+<h3 id="卸载系统⾃带的MARIADB（如果有）"><a href="#卸载系统⾃带的MARIADB（如果有）" class="headerlink" title="卸载系统⾃带的MARIADB（如果有）"></a>卸载系统⾃带的MARIADB（如果有）</h3><p>​    如果系统之前⾃带<code>Mariadb</code>，可以先卸载之。</p>
+<p>​    ⾸先查询已安装的<code>Mariadb</code>安装包：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep mariadb</span><br></pre></td></tr></table></figure>
+
+<img src="/posts/6bb8a1e9/b.jpg" style="zoom:80%;">
+
+<p>​    卸载命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y remove mariadb-server-5.5.56-2.el7.x86_64</span><br><span class="line">yum -y remove mariadb-5.5.56-2.el7.x86_64</span><br><span class="line">yum -y remove mariadb-devel-5.5.56-2.el7.x86_64</span><br><span class="line">yum -y remove mariadb-libs-5.5.56-2.el7.x86_64</span><br></pre></td></tr></table></figure>
+
+<h3 id="解压Mysql安装包"><a href="#解压Mysql安装包" class="headerlink" title="解压Mysql安装包"></a>解压<code>Mysql</code>安装包</h3><p>​    将上⾯准备好的<code>MySQL</code>安装包解压到<code>/usr/local/</code>⽬录，并重命名为<code>mysql</code>.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf /root/mysql-5.7.30-linux-glibc2.12-x86_64.tar.gz -C /usr/local/</span><br><span class="line">mv mysql-5.7.30-linux-glibc2.12-x86_64 mysql</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建Mysql用户和用户组"><a href="#创建Mysql用户和用户组" class="headerlink" title="创建Mysql用户和用户组"></a>创建<code>Mysql</code>用户和用户组</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql</span><br><span class="line">useradd -g mysql mysql</span><br></pre></td></tr></table></figure>
+
+<p>​    同时新建<code>/usr/local/mysql/data</code>⽬录，后续备⽤</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/local/mysql/data</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改Mysql⽬录的归属⽤户"><a href="#修改Mysql⽬录的归属⽤户" class="headerlink" title="修改Mysql⽬录的归属⽤户"></a>修改<code>Mysql</code>⽬录的归属⽤户</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost mysql]# chown -R mysql:mysql ./</span><br></pre></td></tr></table></figure>
+
+<h3 id="准备MYSQL的配置⽂件"><a href="#准备MYSQL的配置⽂件" class="headerlink" title="准备MYSQL的配置⽂件"></a>准备MYSQL的配置⽂件</h3><p>​    在<code>/etc</code>⽬录下新建<code>my.cnf</code>⽂件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch /etc/my.cnf</span><br></pre></td></tr></table></figure>
+
+<p>写⼊如下简化配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[mysql]</span><br><span class="line"># 设置mysql客户端默认字符集</span><br><span class="line">default-character-set&#x3D;utf8</span><br><span class="line">socket&#x3D;&#x2F;var&#x2F;lib&#x2F;mysql&#x2F;mysql.sock</span><br><span class="line">[mysqld]</span><br><span class="line">skip-name-resolve</span><br><span class="line">#设置3306端⼝</span><br><span class="line">port &#x3D; 3306</span><br><span class="line">socket&#x3D;&#x2F;var&#x2F;lib&#x2F;mysql&#x2F;mysql.sock</span><br><span class="line"># 设置mysql的安装⽬录</span><br><span class="line">basedir&#x3D;&#x2F;usr&#x2F;local&#x2F;mysql</span><br><span class="line"># 设置mysql数据库的数据的存放⽬录</span><br><span class="line">datadir&#x3D;&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;data</span><br><span class="line"># 允许最⼤连接数</span><br><span class="line">max_connections&#x3D;200</span><br><span class="line"># 服务端使⽤的字符集默认为8⽐特编码的latin1字符集</span><br><span class="line">character-set-server&#x3D;utf8</span><br><span class="line"># 创建新表时将使⽤的默认存储引擎</span><br><span class="line">default-storage-engine&#x3D;INNODB</span><br><span class="line">lower_case_table_names&#x3D;1</span><br><span class="line">max_allowed_packet&#x3D;16M</span><br></pre></td></tr></table></figure>
+
+<p>​    同时使⽤如下命令创建<code>/var/lib/mysql</code>⽬录，并修改权限：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /var/lib/mysql</span><br><span class="line">chmod 777 /var/lib/mysql</span><br></pre></td></tr></table></figure>
+
+<h3 id="正式开始安装Mysql"><a href="#正式开始安装Mysql" class="headerlink" title="正式开始安装Mysql"></a>正式开始安装<code>Mysql</code></h3><p>​    执⾏如下命令正式开始安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/mysql</span><br><span class="line">./bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data</span><br></pre></td></tr></table></figure>
+
+<img src="/posts/6bb8a1e9/c.jpg" style="zoom:80%;">
+
+<p>​    <strong>注意：记住上⾯打印出来的root 的密码，后⾯⾸次登陆需要使⽤</strong></p>
+<h3 id="复制启动脚本到资源⽬录"><a href="#复制启动脚本到资源⽬录" class="headerlink" title="复制启动脚本到资源⽬录"></a>复制启动脚本到资源⽬录</h3><p>​    执⾏如下命令复制：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost mysql]# cp ./support-files/mysql.server /etc/init.d/mysqld</span><br></pre></td></tr></table></figure>
+
+<p>​    并修改<code>/etc/init.d/mysqld</code>，找到并修改其<code>basedir</code>和<code>datadir</code>为实际对应⽬录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">basedir&#x3D;&#x2F;usr&#x2F;local&#x2F;mysql</span><br><span class="line">datadir&#x3D;&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;data</span><br></pre></td></tr></table></figure>
+
+<p>​    ⾸先增加mysqld 服务控制脚本执⾏权限：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /etc/init.d/mysqld</span><br></pre></td></tr></table></figure>
+
+<p>​    同时将mysqld 服务加⼊到系统服务：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --add mysqld</span><br></pre></td></tr></table></figure>
+
+<p>​    最后检查mysqld 服务是否已经⽣效即可：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --list mysqld</span><br></pre></td></tr></table></figure>
+
+<img src="/posts/6bb8a1e9/d.jpg" style="zoom:80%;">
+
+<p>​    这样就表明<code>mysqld</code>服务已经⽣效了，在2、3、4、5运⾏级别随系统启动⽽⾃动启动，以后可以直接使⽤<code>service</code>命令控制<code>mysql</code>的启停。</p>
+<h3 id="启动Mysqld"><a href="#启动Mysqld" class="headerlink" title="启动Mysqld"></a>启动Mysqld</h3><p>​    直接执⾏：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start</span><br></pre></td></tr></table></figure>
+
+<img src="/posts/6bb8a1e9/e.jpg" style="zoom:80%;">
+
+<h3 id="将Mysql-的bin⽬录加⼊PATH环境变量"><a href="#将Mysql-的bin⽬录加⼊PATH环境变量" class="headerlink" title="将Mysql 的bin⽬录加⼊PATH环境变量"></a>将<code>Mysql</code> 的<code>bin</code>⽬录加⼊<code>PATH</code>环境变量</h3><p>​    这样⽅便以后在任意⽬录上都可以使⽤<code>mysql</code>提供的命令。</p>
+<p>​    编辑 <code>~/.bash_profile</code>⽂件，在⽂件末尾处追加如下信息:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin</span><br></pre></td></tr></table></figure>
+
+<img src="/posts/6bb8a1e9/f.jpg" style="zoom:80%;">
+
+<p>​        最后执⾏如下命令使环境变量⽣效</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+
+<h3 id="⾸次登陆Mysql"><a href="#⾸次登陆Mysql" class="headerlink" title="⾸次登陆Mysql"></a>⾸次登陆<code>Mysql</code></h3><p>​    以<code>root</code>账户登录<code>mysql</code>，使⽤上⽂安装完成提示的密码进⾏登⼊</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<img src="/posts/6bb8a1e9/g.jpg" style="zoom:80%;">
+
+<h3 id="接下来修改ROOT账户密码"><a href="#接下来修改ROOT账户密码" class="headerlink" title="接下来修改ROOT账户密码"></a>接下来修改ROOT账户密码</h3><p>​    在<code>mysql</code>的命令⾏执⾏如下命令即可，密码可以换成你想⽤的密码即可：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> alter user user() identified by <span class="string">&quot;111111&quot;</span>;</span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> flush privileges;</span></span><br></pre></td></tr></table></figure>
+
+<img src="/posts/6bb8a1e9/h.jpg" style="zoom:80%;">
+
+<p>​    ⽐如这⾥将密码设置成简单的“111111”了。</p>
+<h3 id="设置远程主机登录"><a href="#设置远程主机登录" class="headerlink" title="设置远程主机登录"></a>设置远程主机登录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> use mysql;</span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> update user <span class="built_in">set</span> user.Host=<span class="string">&#x27;%&#x27;</span> <span class="built_in">where</span> user.User=<span class="string">&#x27;root&#x27;</span>;</span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> flush privileges;</span></span><br></pre></td></tr></table></figure>
+
+<p>​    最后利⽤<code>Navicat</code>等⼯具进⾏测试即可。</p>
+<blockquote>
+<p>​    个人想法，本人目前还在学习阶段，其实进入公司以后，应该都会有专门的<code>mysql</code>数据库，一般不会直接让在服务器里安装<code>mysql</code>数据库的，但是以后可能用不到，那是以后的事情了，技多不压身，好好学习，一起加油吧！</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Huafire</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://likanghua.gitee.io/posts/6bb8a1e9.html">http://likanghua.gitee.io/posts/6bb8a1e9.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://likanghua.gitee.io" target="_blank">Huafire's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Centos/">Centos</a></div><div class="post_share"><div class="addthis_inline_share_toolbox"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60693108ca3b69d9" async="async"></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/image/wechat.png" target="_blank"><img class="post-qr-code-img" src="/image/wechat.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/image/alipay.png" target="_blank"><img class="post-qr-code-img" src="/image/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/69718bed.html"><img class="prev-cover" src="/image/top_img.jpg" onerror="onerror=null;src='/image/timg%20(9).jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第一个JavaWeb项目</div></div></a></div><div class="next-post pull-right"><a href="/posts/81ea4a90.html"><img class="next-cover" src="/image/top_img.jpg" onerror="onerror=null;src='/image/timg%20(9).jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">修复同时使用hexo-asset-image和hexo-abbrlink时导致图片加载失败的问题</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/79477970.html" title="Centos7服务器被挖矿"><img class="cover" src="/image/top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-14</div><div class="title">Centos7服务器被挖矿</div></div></a></div><div><a href="/posts/50190.html" title="Centos中docker的安装和基本使用"><img class="cover" src="/image/top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-15</div><div class="title">Centos中docker的安装和基本使用</div></div></a></div><div><a href="/posts/1ea2ed25.html" title="Centos服务器配置"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-15</div><div class="title">Centos服务器配置</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85python3-7-0%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">安装python3.7.0环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85jdk"><span class="toc-number">2.</span> <span class="toc-text">安装jdk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Centos7-4%E5%AE%89%E8%A3%85mysql"><span class="toc-number">3.</span> <span class="toc-text">Centos7.4安装mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD%E7%B3%BB%E7%BB%9F%E2%BE%83%E5%B8%A6%E7%9A%84MARIADB%EF%BC%88%E5%A6%82%E6%9E%9C%E6%9C%89%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">卸载系统⾃带的MARIADB（如果有）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8BMysql%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-number">3.2.</span> <span class="toc-text">解压Mysql安装包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAMysql%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84"><span class="toc-number">3.3.</span> <span class="toc-text">创建Mysql用户和用户组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9Mysql%E2%BD%AC%E5%BD%95%E7%9A%84%E5%BD%92%E5%B1%9E%E2%BD%A4%E6%88%B7"><span class="toc-number">3.4.</span> <span class="toc-text">修改Mysql⽬录的归属⽤户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87MYSQL%E7%9A%84%E9%85%8D%E7%BD%AE%E2%BD%82%E4%BB%B6"><span class="toc-number">3.5.</span> <span class="toc-text">准备MYSQL的配置⽂件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%BC%8F%E5%BC%80%E5%A7%8B%E5%AE%89%E8%A3%85Mysql"><span class="toc-number">3.6.</span> <span class="toc-text">正式开始安装Mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC%E5%88%B0%E8%B5%84%E6%BA%90%E2%BD%AC%E5%BD%95"><span class="toc-number">3.7.</span> <span class="toc-text">复制启动脚本到资源⽬录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8Mysqld"><span class="toc-number">3.8.</span> <span class="toc-text">启动Mysqld</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86Mysql-%E7%9A%84bin%E2%BD%AC%E5%BD%95%E5%8A%A0%E2%BC%8APATH%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">3.9.</span> <span class="toc-text">将Mysql 的bin⽬录加⼊PATH环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%BE%B8%E6%AC%A1%E7%99%BB%E9%99%86Mysql"><span class="toc-number">3.10.</span> <span class="toc-text">⾸次登陆Mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E4%BF%AE%E6%94%B9ROOT%E8%B4%A6%E6%88%B7%E5%AF%86%E7%A0%81"><span class="toc-number">3.11.</span> <span class="toc-text">接下来修改ROOT账户密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA%E7%99%BB%E5%BD%95"><span class="toc-number">3.12.</span> <span class="toc-text">设置远程主机登录</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 <i id="heartbeat" class="fa fas fa-heartbeat"></i> Huafire</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></head></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'dark',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'Wbv34OKsNzQ3ArX4huI8pXHe-MdYXbMMI',
+      appKey: 'WlASmI3uPHlDpGDeGFCEUObC',
+      placeholder: '快点来说点什么吧^-^',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>

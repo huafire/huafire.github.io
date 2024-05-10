@@ -1,0 +1,306 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SpringBoot整合Mybatis | Huafire's Blog</title><meta name="keywords" content="java,SpringBoot"><meta name="author" content="Huafire"><meta name="copyright" content="Huafire"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="​    SpringData是Spring提供的一个用于简化数据库访问、支持云服务器的开原框架。SpringData提供了多种类型数据库支持，SpringBoot对SpringData支持的数据库进行了整合管理，提供了各种依赖启动器。如下表：    名称 描述    spring-boot-starter-data-jpa Spring Data JPA与Hibernate启动器   sprin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot整合Mybatis">
+<meta property="og:url" content="http://likanghua.gitee.io/posts/16cf83b7.html">
+<meta property="og:site_name" content="Huafire&#39;s Blog">
+<meta property="og:description" content="​    SpringData是Spring提供的一个用于简化数据库访问、支持云服务器的开原框架。SpringData提供了多种类型数据库支持，SpringBoot对SpringData支持的数据库进行了整合管理，提供了各种依赖启动器。如下表：    名称 描述    spring-boot-starter-data-jpa Spring Data JPA与Hibernate启动器   sprin">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://likanghua.gitee.io/image/top_img.jpg">
+<meta property="article:published_time" content="2021-08-02T09:17:36.000Z">
+<meta property="article:modified_time" content="2024-04-23T02:22:49.979Z">
+<meta property="article:author" content="Huafire">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="SpringBoot">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://likanghua.gitee.io/image/top_img.jpg"><link rel="shortcut icon" href="/image/favicon.png"><link rel="canonical" href="http://likanghua.gitee.io/posts/16cf83b7"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="0636b7ba2150764ec4f9af345a7bf915"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":300,"languages":{"author":"作者: Huafire","link":"链接: ","source":"来源: Huafire's Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-23 10:22:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/hua.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/image/avatar.jpg" onerror="onerror=null;src='/image/timg (9).jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-cubes"></i><span> 自言自语</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messages/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/image/top_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Huafire's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-cubes"></i><span> 自言自语</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messages/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SpringBoot整合Mybatis</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-08-02T09:17:36.000Z" title="发表于 2021-08-02 17:17:36">2021-08-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-23T02:22:49.979Z" title="更新于 2024-04-23 10:22:49">2024-04-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/SpringBoot/">SpringBoot</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>​    <code>SpringData</code>是<code>Spring</code>提供的一个用于简化数据库访问、支持云服务器的开原框架。<code>SpringData</code>提供了多种类型数据库支持，<code>SpringBoot</code>对<code>SpringData</code>支持的数据库进行了整合管理，提供了各种依赖启动器。如下表：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>spring-boot-starter-data-jpa</code></td>
+<td><code>Spring Data JPA</code>与<code>Hibernate</code>启动器</td>
+</tr>
+<tr>
+<td><code>spring-boot-starter-data-mongodb</code></td>
+<td><code>MongoDB</code>和<code>Spring Data MongoDB</code>的启动器</td>
+</tr>
+<tr>
+<td><code>spring-boot-starter-data-neo4j</code></td>
+<td><code>Neo4j</code>图数据库和<code>Spring Data Neo4j</code>的启动器</td>
+</tr>
+<tr>
+<td><code>spring-boot-starter-data-redis</code></td>
+<td><code>Redis</code>键值数据存储与<code>Spring Data Redis</code>和<code>Jedis</code>客户端的启动器</td>
+</tr>
+</tbody></table>
+<p>​    需要说明的是，<code>MyBatis</code>作为操作数据库的流行框架，<code>SpringBoot</code>没有提供<code>MyBatis</code>场景依赖，但是<code>MyBatis</code>开发团队自己适配了<code>SpringBoot</code>，提供了<code>mybatis-spring-boot-starter</code>依赖启动器实现数据访问操作。</p>
+<h2 id="SpringBoot整合Mybatis"><a href="#SpringBoot整合Mybatis" class="headerlink" title="SpringBoot整合Mybatis"></a><code>SpringBoot</code>整合<code>Mybatis</code></h2><h3 id="基础环境搭建"><a href="#基础环境搭建" class="headerlink" title="基础环境搭建"></a>基础环境搭建</h3><p>​    实现<code>SpringBoot</code>与数据访问层框架（例如：<code>MyBatis</code>）的整合非常简单，主要是引入对应的依赖启动器，具体步骤如下：</p>
+<ol>
+<li><p>数据准备</p>
+<p>​    在<code>MySQL</code>数据库中，创建一个<code>springBoot_learn</code>的数据库，并创建两张表<code>t_article</code>和<code>t_comment</code>，并放入几条测试数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"># 创建数据库</span><br><span class="line"><span class="keyword">CREATE</span> DATABASE springboot_learn;</span><br><span class="line"></span><br><span class="line"># 选择使用数据库</span><br><span class="line">USE springboot_learn;</span><br><span class="line"></span><br><span class="line"># 创建表t_article并插入数据</span><br><span class="line">USE springboot_learn;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span></span><br><span class="line">IF</span><br><span class="line">	<span class="keyword">EXISTS</span> `t_article`;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `t_article` (</span><br><span class="line">	`id` <span class="type">INT</span> ( <span class="number">20</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;文章id&#x27;</span>,</span><br><span class="line">	`title` <span class="type">VARCHAR</span> ( <span class="number">200</span> ) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;文章标题&#x27;</span>,</span><br><span class="line">	`content` LONGTEXT COMMENT <span class="string">&#x27;文章内容&#x27;</span>,</span><br><span class="line">	<span class="keyword">PRIMARY</span> KEY ( `id` ) </span><br><span class="line">) ENGINE <span class="operator">=</span> INNODB AUTO_INCREMENT <span class="operator">=</span> <span class="number">2</span> <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8mb4;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `t_article`</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">	( <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;SpringBoot基础入门&#x27;</span>, <span class="string">&#x27;从入门到精通讲解...&#x27;</span> );</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `t_article`</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">	( <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;SpringBoot基础入门&#x27;</span>, <span class="string">&#x27;从入门到精通讲解...&#x27;</span> );</span><br><span class="line"></span><br><span class="line"># 创建表t_comment并插入相关数据</span><br><span class="line">USE springboot_learn;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span></span><br><span class="line">IF</span><br><span class="line">	<span class="keyword">EXISTS</span> `t_comment`;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `t_comment` (</span><br><span class="line">	`id` <span class="type">INT</span> ( <span class="number">20</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;评论id&#x27;</span>,</span><br><span class="line">	`content` LONGTEXT COMMENT <span class="string">&#x27;评论内容&#x27;</span>,</span><br><span class="line">	`author` <span class="type">VARCHAR</span> ( <span class="number">200</span> ) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;评论作者&#x27;</span>,</span><br><span class="line">	`a_id` <span class="type">INT</span> ( <span class="number">20</span> ) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;关联的文章id&#x27;</span>,</span><br><span class="line">	<span class="keyword">PRIMARY</span> KEY ( `id` ) </span><br><span class="line">) ENGINE <span class="operator">=</span> INNODB auto_increment <span class="operator">=</span> <span class="number">3</span> <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8mb4;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `t_comment`</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">	( <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;很全、很详细&#x27;</span>, <span class="string">&#x27;狂奔的蜗牛&#x27;</span>, <span class="string">&#x27;1&#x27;</span> );</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `t_comment`</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">	( <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;赞一个&#x27;</span>, <span class="string">&#x27;tom&#x27;</span>, <span class="string">&#x27;1&#x27;</span> );</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `t_comment`</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">	( <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;很详细&#x27;</span>, <span class="string">&#x27;kitty&#x27;</span>, <span class="string">&#x27;1&#x27;</span> );</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `t_comment`</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">	( <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;很好，非常详细&#x27;</span>, <span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;1&#x27;</span> );</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `t_comment`</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">	( <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;很不错&#x27;</span>, <span class="string">&#x27;张扬&#x27;</span>, <span class="string">&#x27;2&#x27;</span> );</span><br></pre></td></tr></table></figure>
+
+<p>​    上面的<code>sql</code>语句中，先创建了一个数据库<code>springboot_learn</code>，然后创建了两个表<code>t_article</code>和<code>t_comment</code>，并向表中插入数据。其中，评论表<code>t_comment</code>的<code>a_id</code>与文章表<code>t_article</code>的主键<code>id</code>相关联。</p>
+</li>
+<li><p>创建项目，引入相应的启动器</p>
+<ol>
+<li><p>在依赖中引入<code>MySQL</code>和<code>MyBatis</code>依赖，其中<code>MySQL</code>是为了提供<code>MySQL</code>数据库连接驱动，<code>MyBatis</code>则是为了提供<code>MyBatis</code>框架来操作数据库。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--    数据库连接池 jdbc--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>编写数据库表对应的实体类。在<code>com.learn.bean</code>包下编写<code>Comment</code>和<code>Article</code>实体类，分别对应数据库表<code>t_comment</code>和<code>t_article</code>，内容如下：</p>
+<p><code>Comment.java</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Comment</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String content;</span><br><span class="line">    <span class="keyword">private</span> String author;</span><br><span class="line">    <span class="keyword">private</span> Integer aId;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Article.java</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Article</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String title;</span><br><span class="line">    <span class="keyword">private</span> String content;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Comment&gt; commentList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>编写配置文件</p>
+<ol>
+<li><p>在<code>application.properties</code>配置文件中进行数据库连接配置。打开全局配置文件<code>application.properties</code>，在配置文件中编写对用的<code>MySQL</code>数据库连接配置，内容如下：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MySQL数据库连接配置</span></span><br><span class="line"><span class="meta">spring.datasource.url</span>=<span class="string">jdbc:mysql://localhost:3306/springboot_learn?serverTimezone=UTC</span></span><br><span class="line"><span class="meta">spring.datasource.username</span>=<span class="string">root</span></span><br><span class="line"><span class="meta">spring.datasource.password</span>=<span class="string">root</span></span><br></pre></td></tr></table></figure></li>
+<li><p>数据源类型选择配置。<code>SpringBoot 1.x</code>版本默认使用的是<code>tomcat.jdbc</code>数据源，<code>SpringBoot 2.x</code>版本默认使用的是<code>hikari</code>数据源，如果需要其他的数据源，需要额外配置。</p>
+<p>​    这里使用的是阿里巴巴的<code>Druid</code>数据源，在<code>pom.xml</code>文件中添加<code>Druid</code>数据源的依赖启动器，代码如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.10<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​    上面引入依赖<code>druid-spring-boot-starter</code>，同样是阿里巴巴为了迎合<code>SpringBoot</code>项目而适配的<code>Druid</code>数据源启动器，当在<code>pom.xml</code>文件中引入了该启动器后，不需要再进行其他额外配置，<code>SpringBoot</code>项目会自动识别配置<code>Druid</code>数据源。</p>
+<p>​    要说明的是，上面配置的<code>Druid</code>数据源启动器内部已经初始化了一些运行参数（例如：<code>initialSize</code>、<code>minldle</code>和<code>maxActive</code>等），如果开发时要修改第三方<code>Druid</code>的运行参数，则必须在全局配置文件中修改，如下：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加并配置第三方数据源Druid</span></span><br><span class="line"><span class="meta">spring.datasource.type</span>=<span class="string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line"><span class="meta">spring.datasource.druid.initial-size</span>=<span class="string">20</span></span><br><span class="line"><span class="meta">spring.datasource.druid.min-idle</span>=<span class="string">10</span></span><br><span class="line"><span class="meta">spring.datasource.druid.max-active</span>=<span class="string">100</span></span><br></pre></td></tr></table></figure>
+
+<p>​    文件中修改了<code>Druid</code>数据源的类型、初始化连接数、最小空闲数和最大连接数属性。当然还可以设置更多属性，参考<code>Druid</code>属性设置。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="使用注解的方式整合MyBatis"><a href="#使用注解的方式整合MyBatis" class="headerlink" title="使用注解的方式整合MyBatis"></a>使用注解的方式整合<code>MyBatis</code></h3><p>​    相比<code>Spring</code>与<code>MyBatis</code>的整合，<code>SpringBoot</code>与<code>MyBatis</code>的整合会使项目开发更加简便，同时还支持<code>XML</code>和注解两种配置方式。下面为注解的方式，步骤如下：</p>
+<ol>
+<li><p>创建<code>Mapper</code>接口文件，在<code>com.learn.mapper</code>包下，创建一个用于对数据库<code>t_comment</code>数据操作的接口<code>CommentMapper</code>，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.kanghua.bean.Comment;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CommentMapper</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Select(&quot;SELECT * FROM t_comment WHERE id =#&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Comment <span class="title">findById</span><span class="params">(Integer id)</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Insert(&quot;INSERT INTO t_comment(content, author, a_id)&quot; + &quot;values (#&#123;content&#125;, #&#123;author&#125;, #&#123;aId&#125;)&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">insertComment</span><span class="params">(Comment comment)</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Update(&quot;UPDATE INTO t_comment SET content=#&#123;content&#125; WHERE id=#&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">updateComment</span><span class="params">(Comment comment)</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Delete(&quot;DELETE FROM t_comment WHERE id=#&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">deleteComment</span><span class="params">(Integer id)</span></span>;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    文件中，<code>@Mapper</code>注解表示该类是一个<code>MyBatis</code>接口文件，并保证能够被<code>SpringBoot</code>自动扫描到<code>Spring</code>容器中，在接口内部，分别通过<code>@Select</code>、<code>@Insert</code>、<code>@Update</code>、<code>@Delete</code>注解配合<code>SQL</code>语句完成了对数据库表<code>t_comment</code>数据的增删改查操作。</p>
+<blockquote>
+<p>上面文件中，在对应的接口类上添加了<code>@Mapper</code>注解，如果编写的<code>Mapper</code>接口过多时，需要重复为每一个接口文件添加<code>@Mapper</code>注解，为了避免这种麻烦，可以直接在<code>SpringBoot</code>项目启动器类上添加<code>@MapperScan(&quot;xxx&quot;)</code>注解，不需要再逐个添加<code>@Mapper</code>注解。<code>@MapperScan(&quot;xxx&quot;)</code>注解的作用和<code>@Mapper</code>注解类似，但是它必须指定需要扫描的具体包名，例如<code>@MapperScan(&quot;com.learn.mapper&quot;)</code>。</p>
+</blockquote>
+</li>
+<li><p>编写单元测试进行接口方法测试。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> CommentMapper commentMapper;</span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectComment</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Comment comment = commentMapper.findById(<span class="number">1</span>);</span><br><span class="line">    System.out.println(comment);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    先通过<code>@Autowired</code>注解将<code>CommentMapper</code>接口自动装配为<code>Spring</code>容器中的<code>Bean</code>，然后使用<code>@Test</code>注解标注<code>selectComment()</code>方法是单元测试方法，这里仅演示了<code>Mapper</code>接口中的数据查询。</p>
+</li>
+<li><p>运行<code>selectComment()</code>方法，控制台输出结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Comment(id&#x3D;1, content&#x3D;很全、很详细, author&#x3D;狂奔的蜗牛, aId&#x3D;null)</span><br></pre></td></tr></table></figure>
+
+<p>我们会发现，<code>aId</code>的结果是<code>null</code>，并不是我们设置的1，这是因为编写的实体类<code>Comment</code>中使用了驼峰命令法，将<code>t_comment</code>表中的<code>a_id</code>字段设计成了<code>aId</code>属性，所以无法正确映射查询结果，为了解决上面的问题，可以在<code>application.properties</code>中添加一下配置：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mybatis.configuration.map-underscore-to-camel-case</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
+
+<p>再次测试即可得到结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Comment(id&#x3D;1, content&#x3D;很全、很详细, author&#x3D;狂奔的蜗牛, aId&#x3D;1)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="用配置文件的方式整合MyBatis"><a href="#用配置文件的方式整合MyBatis" class="headerlink" title="用配置文件的方式整合MyBatis"></a>用配置文件的方式整合<code>MyBatis</code></h3><p>​    <code>SpringBoot</code>整合<code>MyBatis</code>时，不仅支持注解方式，还支持<code>XML</code>配置文件的方式，具体步骤如下：</p>
+<ol>
+<li><p>创建一个<code>Mapper</code>接口文件，在<code>com.learn.mapper</code>包中，创建一个操作数据表<code>t_article</code>的接口<code>ArticleMapper</code>，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ArticleMapper</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Article <span class="title">selectArticle</span><span class="params">(Integer id)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">updateArticle</span><span class="params">(Article article)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>创建<code>XML</code>映射文件，在<code>resource</code>目录下，创建一个统一管理映射文件的包<code>mapper</code>，并在该包下编写与<code>ArticleMapper</code>接口对应的映射文件<code>ArticleMapper.xml</code>，内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.kanghua.mapper.ArticleMapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectArticle&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;articleWithComment&quot;</span>&gt;</span></span><br><span class="line">        SELECT a.*,c.id c_id, c.content c_content, c.author</span><br><span class="line">        FROM t_article a, t_comment c</span><br><span class="line">        WHERE a.id=c.a_id AND a.id=#&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;articleWithComment&quot;</span> <span class="attr">type</span>=<span class="string">&quot;Article&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span> <span class="attr">column</span>=<span class="string">&quot;id&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;title&quot;</span> <span class="attr">column</span>=<span class="string">&quot;title&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;content&quot;</span> <span class="attr">column</span>=<span class="string">&quot;content&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">&quot;commentList&quot;</span> <span class="attr">ofType</span>=<span class="string">&quot;Comment&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span> <span class="attr">column</span>=<span class="string">&quot;c_id&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;content&quot;</span> <span class="attr">column</span>=<span class="string">&quot;c_content&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;author&quot;</span> <span class="attr">column</span>=<span class="string">&quot;author&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">&quot;updateArticle&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;Article&quot;</span>&gt;</span></span><br><span class="line">        UPDATE t_article</span><br><span class="line">        <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;title !=null and title != &#x27;&#x27;&quot;</span>&gt;</span></span><br><span class="line">                title=#&#123;title&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;content !=null and content !=&#x27;&#x27;&quot;</span>&gt;</span></span><br><span class="line">                content=#&#123;content&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">        WHERE id=#&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​    上面代码中，<code>&lt;mapper&gt;</code>标签中的<code>namespace</code>属性值对用的是<code>ArticleMapper</code>接口文件全路径名称，在映射文件中根据<code>ArticleMapper</code>接口文件中的方法，编写两个对应的<code>SQL</code>语句，同时配置数据类型映射时，没有使用类的全路径名称，而是使用了类的别名，（例如，没有使用<code>com.learn.Article</code>而是使用了<code>Article</code>）。</p>
+</li>
+<li><p>配置<code>XML</code>映射文件路径，我们在项目中编写的<code>XML</code>映射文件，<code>SpringBoot</code>无法扫描到自定义编写的<code>XML</code>配置文件，还必须在全局配置文件<code>application.properties</code>中添加<code>MyBatis</code>映射文件路径的配置，同时需要添加实体类别名映射路径，代码如下：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置MyBatis的XML配置文件路径</span></span><br><span class="line"><span class="meta">mybatis.mapper-locations</span>=<span class="string">classpath:mapper/*.xml</span></span><br><span class="line"><span class="comment"># 配置XML映射文件中指定的实体类别名路径</span></span><br><span class="line"><span class="meta">mybatis.type-aliases-package</span>=<span class="string">com.bean</span></span><br></pre></td></tr></table></figure>
+
+<p>​    上面代码中，在使用配置文件方式整合<code>MyBatis</code>时，<code>MyBatis</code>映射文件路径的配置必不可少；而实体类别名的配置是根据前面创建的<code>XML</code>映射文件别名使用情况来确定的，如果<code>XML</code>映射文件中使用的都是类的全路径名称，则不需要配置。</p>
+</li>
+<li><p>编写测试类。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> ArticleMapper articleMapper;</span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectArticle</span><span class="params">()</span></span>&#123;</span><br><span class="line">Article article = articleMapper.selectArticle(<span class="number">1</span>);</span><br><span class="line">System.out.println(article);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>控制台中打印出了下面的信息，说明配置完成。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Article(id&#x3D;1, title&#x3D;SpringBoot基础入门, content&#x3D;从入门到精通讲解..., commentList&#x3D;[Comment(id&#x3D;1, content&#x3D;很全、很详细, author&#x3D;狂奔的蜗牛, aId&#x3D;null), Comment(id&#x3D;2, content&#x3D;赞一个, author&#x3D;tom, aId&#x3D;null), Comment(id&#x3D;3, content&#x3D;很详细, author&#x3D;kitty, aId&#x3D;null), Comment(id&#x3D;4, content&#x3D;很好，非常详细, author&#x3D;张三, aId&#x3D;null)])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>​    对于<code>SpringBoot</code>支持与<code>MyBatis</code>整合的两种方式而言，使用注解的方式比较合适简单的增删改查操作；而使用配置文件的方式稍微麻烦，但对于复杂的数据操作却显得比较实用。实际开发中，使用<code>SpringBoot</code>整合<code>MyBatis</code>进行项目开发时，通常会混合使用两种整合方式。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Huafire</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://likanghua.gitee.io/posts/16cf83b7.html">http://likanghua.gitee.io/posts/16cf83b7.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://likanghua.gitee.io" target="_blank">Huafire's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java/">java</a><a class="post-meta__tags" href="/tags/SpringBoot/">SpringBoot</a></div><div class="post_share"><div class="addthis_inline_share_toolbox"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60693108ca3b69d9" async="async"></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/image/wechat.png" target="_blank"><img class="post-qr-code-img" src="/image/wechat.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/image/alipay.png" target="_blank"><img class="post-qr-code-img" src="/image/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/16cf83b7.html"><img class="prev-cover" src="/image/top_img.jpg" onerror="onerror=null;src='/image/timg%20(9).jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SpringBoot数据访问</div></div></a></div><div class="next-post pull-right"><a href="/posts/3ce02997.html"><img class="next-cover" src="/image/top_img.jpg" onerror="onerror=null;src='/image/timg%20(9).jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SpringBoot入门</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/3ce02997.html" title="SpringBoot入门"><img class="cover" src="/image/top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-29</div><div class="title">SpringBoot入门</div></div></a></div><div><a href="/posts/c473074d.html" title="SpringBoot整合JPA"><img class="cover" src="/image/top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-08-11</div><div class="title">SpringBoot整合JPA</div></div></a></div><div><a href="/posts/c1b62771.html" title="SpringBoot整合Mybatis-plus"><img class="cover" src="/image/top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-08-28</div><div class="title">SpringBoot整合Mybatis-plus</div></div></a></div><div><a href="/posts/d0300bea.html" title="JavaWeb踩坑记"><img class="cover" src="/image/top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-17</div><div class="title">JavaWeb踩坑记</div></div></a></div><div><a href="/posts/38943.html" title="Java基础"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-27</div><div class="title">Java基础</div></div></a></div><div><a href="/posts/69718bed.html" title="第一个JavaWeb项目"><img class="cover" src="/image/top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-22</div><div class="title">第一个JavaWeb项目</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot%E6%95%B4%E5%90%88Mybatis"><span class="toc-number">1.</span> <span class="toc-text">SpringBoot整合Mybatis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">1.1.</span> <span class="toc-text">基础环境搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E7%9A%84%E6%96%B9%E5%BC%8F%E6%95%B4%E5%90%88MyBatis"><span class="toc-number">1.2.</span> <span class="toc-text">使用注解的方式整合MyBatis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%B9%E5%BC%8F%E6%95%B4%E5%90%88MyBatis"><span class="toc-number">1.3.</span> <span class="toc-text">用配置文件的方式整合MyBatis</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 <i id="heartbeat" class="fa fas fa-heartbeat"></i> Huafire</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></head></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'dark',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'Wbv34OKsNzQ3ArX4huI8pXHe-MdYXbMMI',
+      appKey: 'WlASmI3uPHlDpGDeGFCEUObC',
+      placeholder: '快点来说点什么吧^-^',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
