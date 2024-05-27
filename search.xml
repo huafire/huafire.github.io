@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>springboot中feign调用微服务</title>
+      <link href="posts/332af4c7.html"/>
+      <url>posts/332af4c7.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vue实战</title>
       <link href="posts/ae9f4892.html"/>
       <url>posts/ae9f4892.html</url>
@@ -898,9 +911,9 @@
       
         <tags>
             
-            <tag> Ubuntu </tag>
-            
             <tag> VMware </tag>
+            
+            <tag> Ubuntu </tag>
             
             <tag> Vbox </tag>
             
