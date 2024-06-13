@@ -8,8 +8,8 @@ type: "about"
 
 ​	刚入职的小白一个，男，大数据专业。
 
-​	喜欢研究新技术，接触过多种编程语言，主修方向是 Java 和 Python ， 感觉自身知识非常匮乏，急需充电~
+​	喜欢研究新技术，接触过多种编程语言，主修方向是`Java`和`Python`， 感觉自身知识非常匮乏，急需充电~
 
-​	技术栈：`Java Web`设计，`Python`爬虫，`docker`，`Mysql`，`Hadoop`，`Hbase`，`Vue2`（应聘的后端，在公司待了一个月，前端也会了...），过段时间`Pgsql`应该也就会了。
+​	技术栈：`SpringBoot`，`Springcloud`，`SpringBoot`微服务，`Python`爬虫，`docker`，`Mysql`，`Hadoop`，`Hbase`，`Pgsql`，`MongoDB`，`InfluxDB`，`Vue2`（应聘的后端，在公司待了一个月，前端也会了...）。
 
 ​	平时喜欢看电影，打游戏，听音乐，弹弹吉他等，期待和您成为朋友~

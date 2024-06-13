@@ -44,7 +44,7 @@ copy:
 # formal:
 #   icon: link || the description
 social:
-  fab fa-github: https://gitee.com/likanghua || Github
+  fab fa-github: https://github.com/huafire || Github
   fas fa-envelope: mailto:huafire@163.com || Email
 
 # search (搜索)
@@ -682,7 +682,7 @@ aside:
       enable: true
       icon: fab fa-github
       text: 关注我吧^_^
-      link: https://gitee.com/likanghua
+      link: https://github.com/huafire
   card_announcement:
     enable: true
     content: 欢迎访问我的博客，喜欢的话可以收藏哦~
