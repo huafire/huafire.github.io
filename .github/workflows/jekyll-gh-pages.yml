@@ -1,0 +1,34 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 推送到 main 分支时触发部署
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'v16.20.2'  # 设置 Node.js 版本，根据你的项目需求进行调整
+
+      - name: Install dependencies
+        run: npm install  # 安装 Hexo 项目依赖
+
+      - name: Generate site
+        run: npm run generate  # 生成 Hexo 站点
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public  # Hexo 生成的静态文件存放目录
+          # publish_branch: gh-pages  # GitHub Pages 所使用的分支
+          force_orphan: true  # 清空原有的分支内容
+          allow_empty_commit: true  # 允许空提交，以触发 GitHub Pages 重新构建

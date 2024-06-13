@@ -121,5 +121,5 @@ live2d:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://gitee.com/likanghua/likanghua.git 
+  repo: https://github.com/huafire/huafire.github.io.git
   branch: master
